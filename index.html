@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="box">
+      <p>Sfida a dadi col PC</p>
+      <label for="">Clicca sul pulsante "Roll" per tirare il dado</label>
+      <button type="button" id="roll_button" name="button">Roll</button>
+      <p id="user-text"></p>
+      <p id="pc-text"></p>
+      <p id="results"></p>
+    </div>
+
+    <script type="text/javascript">
+      document.getElementById("roll_button").addEventListener("click", displayResults);
+      function displayResults() {
+        var userRandom = Math.floor(Math.random() * 7);
+        var pcRandom = Math.floor(Math.random() * 7);
+        document.getElementById("user-text").innerHTML = "Il tuo risultato: " + userRandom;
+        document.getElementById("pc-text").innerHTML = "Il risultato del pc: " + pcRandom;
+        if (userRandom > pcRandom) {
+          document.getElementById('results').innerHTML = "Il tuo risultato è quello più alto, hai vinto!"
+        } else if (userRandom < pcRandom) {
+          document.getElementById('results').innerHTML = "Il tuo risultato è quello più basso, hai perso!"
+        } else if (userRandom == pcRandom) {
+          document.getElementById('results').innerHTML = "Il tuo risultato è uguale a quello del pc, parità!"
+        };
+      };
+
+    </script>
+  </body>
+</html>
